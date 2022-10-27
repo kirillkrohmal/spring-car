@@ -26,7 +26,7 @@ public class CarDaoImpl implements CarDao{
     @Override
     @SuppressWarnings("unchecked")
     public List<User> listUsers() {
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("select name from userscar u, caraccident c where u.car.model= :model and u.car.series = :series", User.class);
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("select name from userscar u, caraccident c where c.caraccident.model= :model and c.caraccident.series = :series", User.class);
         return query.getResultList();
     }
 }
